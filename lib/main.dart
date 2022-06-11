@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Couchbase Lite Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.deepPurple,
       ),
-      home: const MyHomePage(title: 'Couchbase Flutter Demo'),
+      home: const MyHomePage(title: 'Couchbase Lite Flutter Demo'),
     );
   }
 }
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Navigation Drawer',
+          'Couchbase Lite Flutter Demo',
         ),
         backgroundColor: Colors.deepPurple,
       ),
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
               decoration: BoxDecoration(
                 color: Colors.deepPurple,
               ),
-              child: Text('Couchbase Flutter Demo'),
+              child: Text('Couchbase Lite Flutter Demo'),
             ),
             ListTile(
               leading: const Icon(
