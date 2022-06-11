@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+// https://pub.dev/packages/font_awesome_flutter
+// https://github.com/fluttercommunity/font_awesome_flutter
+// https://fontawesome.com/icons
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -73,16 +78,25 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: const Icon(
                 Icons.home,
               ),
-              title: const Text('Page 1'),
+              title: const Text('Home'),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
               leading: const Icon(
-                Icons.train,
+                FontAwesomeIcons.code,
               ),
-              title: const Text('Page 2'),
+              title: const Text('Developer'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                FontAwesomeIcons.rightFromBracket,
+              ),
+              title: const Text('Log Out'),
               onTap: () {
                 Navigator.pop(context);
               },

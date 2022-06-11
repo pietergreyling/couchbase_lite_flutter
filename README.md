@@ -1,6 +1,9 @@
 # couchbase_lite_flutter
 Couchbase Lite Flutter POC (proof of concept)
 
+![Main Navigator Page](./screenshots/screenshot_main_01.png?raw=true)
+
+
 ***This is not an official Couchbase supported product and is always a work in progress!***
 
 Please feel free to create Git branches and contribute.
