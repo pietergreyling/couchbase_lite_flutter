@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text(
           'Navigation Drawer',
         ),
-        backgroundColor: const Color(0xff764abc),
+        backgroundColor: Colors.deepPurple,
       ),
       drawer: Drawer(
         child: ListView(
