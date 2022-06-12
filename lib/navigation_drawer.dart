@@ -5,6 +5,12 @@ import 'package:flutter/material.dart';
 // https://fontawesome.com/icons
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+// import 'package:couchbase_lite_flutter/routes/page_routes.dart';
+// import 'page_routes.dart';
+
+import "home_page.dart" show HomePage;
+import "developer_page.dart" show DeveloperPage;
+
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
 
@@ -51,8 +57,8 @@ class NavigationDrawer extends StatelessWidget {
               Icons.home,
             ),
             title: const Text('Home'),
-            onTap: () {
-              Navigator.pop(context);
+            onTap: () async {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
             },
           ),
           ListTile(
@@ -60,8 +66,8 @@ class NavigationDrawer extends StatelessWidget {
               FontAwesomeIcons.code,
             ),
             title: const Text('Developer'),
-            onTap: () {
-              Navigator.pop(context);
+            onTap: () async {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DeveloperPage()));
             },
           ),
           ListTile(
