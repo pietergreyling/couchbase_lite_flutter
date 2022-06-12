@@ -69,57 +69,89 @@ class _MyHomePageState extends State<MyHomePage> {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
-          Container(
-            // height: 300,
-            padding: const EdgeInsets.all(24),
-            child: const DrawerHeader(
-              // child: Text('Couchbase Lite Flutter Demo'),
-              decoration: BoxDecoration(
-                color: Colors.deepPurple,
-                image: DecorationImage(
-                    image: AssetImage('assets/couchbase_logo.png'),
-                    fit: BoxFit.cover),
-              ), child: null,
+            const UserAccountsDrawerHeader(
+              decoration: BoxDecoration(color: Colors.deepPurple),
+              accountName: Text(
+                "Demo Couchbase Flutter User",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              accountEmail: Text(
+                "demo_user@example.com",
+                style: TextStyle(
+                  // fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+              currentAccountPicture: FlutterLogo(),
             ),
+            Container(
+              // height: 300,
+              padding: const EdgeInsets.all(24),
+              child: const DrawerHeader(
+                // child: Text('Couchbase Lite Flutter Demo'),
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple,
+                  image: DecorationImage(
+                      image: AssetImage('assets/couchbase_logo.png'),
+                      fit: BoxFit.cover),
+                ), child: null,
+              ),
+            ),
+              ListTile(
+                leading: const Icon(
+                  Icons.home,
+                ),
+                title: const Text('Home'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  FontAwesomeIcons.code,
+                ),
+                title: const Text('Developer'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  FontAwesomeIcons.rightFromBracket,
+                ),
+                title: const Text('Log In'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(
+                  FontAwesomeIcons.circleArrowLeft,
+                ),
+                title: const Text('Log Out'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              const AboutListTile(
+                icon: Icon(
+                  Icons.info,
+                ),
+                applicationIcon: Icon(
+                  Icons.local_play,
+                ),
+                applicationName: 'Flutter with Couchbase',
+                applicationVersion: '0.1.0',
+                applicationLegalese: '© 2022 MIT License',
+                aboutBoxChildren: [
+                  ///Content goes here...
+                ],
+                child: Text('About'),
+              ),
+            ],
           ),
-            ListTile(
-              leading: const Icon(
-                Icons.home,
-              ),
-              title: const Text('Home'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                FontAwesomeIcons.code,
-              ),
-              title: const Text('Developer'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                FontAwesomeIcons.rightFromBracket,
-              ),
-              title: const Text('Log In'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                FontAwesomeIcons.circleArrowLeft,
-              ),
-              title: const Text('Log Out'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
       ),
       body: Center(
         child: Column(
