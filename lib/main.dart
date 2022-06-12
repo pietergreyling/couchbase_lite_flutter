@@ -56,12 +56,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'Couchbase Lite Flutter Demo',
-        ),
         backgroundColor: Colors.deepPurple,
+        title:
+           const Text(
+             'Couchbase Lite Flutter Demo',
+        ),
       ),
       drawer: Drawer(
         child: ListView(
@@ -73,6 +75,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.deepPurple,
               ),
               child: Text('Couchbase Lite Flutter Demo'),
+            ),
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: ExactAssetImage('../assets/couchbase_logo.png'),
+                    fit: BoxFit.cover
+                ),
+              ),
             ),
             ListTile(
               leading: const Icon(
@@ -96,6 +106,15 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: const Icon(
                 FontAwesomeIcons.rightFromBracket,
               ),
+              title: const Text('Log In'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                FontAwesomeIcons.circleArrowLeft,
+              ),
               title: const Text('Log Out'),
               onTap: () {
                 Navigator.pop(context);
@@ -108,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: const [
             SizedBox(
-              height: 50,
+              height: 30,
             ),
           ],
         ),
