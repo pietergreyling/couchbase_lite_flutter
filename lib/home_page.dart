@@ -5,8 +5,25 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("This is Home"),
+          title:  const Text("This is Home"),
         ),
-        body: const Center(child: Text("This is my home page!")));
-  }
-}
+        body:
+          // Center(child: Text("This is my home page!")),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const <Widget>[
+                InkWell(
+                  // onTap: ()
+                  //   { print("Card Clicked !!"); },
+                  child: Card(
+                    child: Icon(
+                      Icons.fingerprint,
+                        size: 100,
+                    ),
+                  ),
+                ),
+              ]
+    ),
+    );
+};
