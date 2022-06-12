@@ -60,9 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.deepPurple,
-        title:
-           const Text(
-             'Couchbase Lite Flutter Demo',
+        title: const Text(
+          'Couchbase Lite Flutter Demo',
         ),
       ),
       drawer: Drawer(
@@ -70,20 +69,19 @@ class _MyHomePageState extends State<MyHomePage> {
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+          Container(
+            // height: 300,
+            padding: const EdgeInsets.all(24),
+            child: const DrawerHeader(
+              // child: Text('Couchbase Lite Flutter Demo'),
               decoration: BoxDecoration(
                 color: Colors.deepPurple,
-              ),
-              child: Text('Couchbase Lite Flutter Demo'),
-            ),
-            Container(
-              decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: ExactAssetImage('../assets/couchbase_logo.png'),
-                    fit: BoxFit.cover
-                ),
-              ),
+                    image: AssetImage('assets/couchbase_logo.png'),
+                    fit: BoxFit.cover),
+              ), child: null,
             ),
+          ),
             ListTile(
               leading: const Icon(
                 Icons.home,
