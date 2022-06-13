@@ -12,11 +12,11 @@ class HomePage extends StatelessWidget {
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
+              children: const <Widget>[
                 InkWell(
-                  onTap: () {
-                    print("Home Card Clicked !!"); }, //TODO!! remove
-                  child: const Card(
+                  // onTap: () {
+                  //   print("Home Card Clicked !!"); }, //TODO!! remove
+                  child: Card(
                     child: Icon(
                       Icons.fingerprint,
                         size: 300,

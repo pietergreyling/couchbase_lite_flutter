@@ -15,14 +15,26 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Couchbase Lite Flutter Demo',
-      initialRoute: '/',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-      ),
-      home: const MyHomePage(title: 'Couchbase Lite Flutter Demo'),
-    );
+    final MaterialApp myMaterialApp;
+    final Scaffold myAppScaffold;
+    myAppScaffold =
+      const Scaffold(
+        floatingActionButton: FloatingActionButton(
+          tooltip: 'Add',
+          onPressed: null, // used by assistive technologies
+          child: Icon(Icons.add),
+        ),
+      );
+    myMaterialApp =
+        MaterialApp(
+          title: 'Couchbase Lite Flutter Demo',
+          initialRoute: '/',
+          theme: ThemeData(
+            primarySwatch: Colors.deepPurple,
+          ),
+          home: const MyHomePage(title: 'Couchbase Lite Flutter Demo'),
+        );
+    return myMaterialApp;
   }
 }
 
