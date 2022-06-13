@@ -12,14 +12,14 @@ class HomePage extends StatelessWidget {
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
+              children: <Widget>[
                 InkWell(
-                  // onTap: ()
-                  //   { print("Card Clicked !!"); },
-                  child: Card(
+                  onTap: () {
+                    print("Home Card Clicked !!"); }, //TODO!! remove
+                  child: const Card(
                     child: Icon(
                       Icons.fingerprint,
-                        size: 100,
+                        size: 300,
                     ),
                   ),
                 ),
