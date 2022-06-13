@@ -28,9 +28,9 @@ src/app/release/
 
 =======
 # ides
-*.idea
-*.vscode
-*.dart_tool
+*/.idea
+*/.vscode
+*/.dart_tool
 
 # Built application files
 *.apk
