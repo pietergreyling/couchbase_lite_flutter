@@ -1,40 +1,33 @@
 import 'package:flutter/material.dart';
-
 import 'navigation_drawer.dart';
 
 // https://pub.dev/packages/font_awesome_flutter
 // https://github.com/fluttercommunity/font_awesome_flutter
 // https://fontawesome.com/icons
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-void main() {
-  runApp(MyApp());
+Future<void> main() async {
+  runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     final MaterialApp myMaterialApp;
-    final Scaffold myAppScaffold;
-    myAppScaffold =
-      const Scaffold(
-        floatingActionButton: FloatingActionButton(
-          tooltip: 'Add',
-          onPressed: null, // used by assistive technologies
-          child: Icon(Icons.add),
-        ),
-      );
-    myMaterialApp =
-        MaterialApp(
-          title: 'Couchbase Lite Flutter Demo',
-          initialRoute: '/',
-          theme: ThemeData(
-            primarySwatch: Colors.deepPurple,
-          ),
-          home: const MyHomePage(title: 'Couchbase Lite Flutter Demo'),
-        );
+
+    myMaterialApp = MaterialApp(
+      title: 'Couchbase Lite Flutter Demo',
+      initialRoute: '/',
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+      ),
+      home: const MyHomePage(title: 'Couchbase Lite Flutter Demo'),
+    );
     return myMaterialApp;
+    // return myAppScaffold;
   }
 }
 
@@ -50,15 +43,22 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.deepPurple,
-        title: const Text(
-          'Couchbase Lite Flutter Demo',
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.deepPurple,
+          title: const Text(
+            'Couchbase Lite Flutter Demo',
+          ),
         ),
-      ),
-      drawer: const NavigationDrawer()
-    );
+        drawer: const NavigationDrawer(),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              content: Text('Couchbase Lite Flutter Demo'),
+            ));
+          },
+        ));
   }
 }
