@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
 
     myMaterialApp = MaterialApp(
       title: 'Couchbase Lite Flutter Demo',
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
