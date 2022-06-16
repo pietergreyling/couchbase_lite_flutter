@@ -5,27 +5,27 @@ class DeveloperPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  const Text("This is my Developer Page"),
+        title: const Text("This is my Developer Page"),
       ),
       body:
-      // Center(child: Text("This is my Developer Page!")),
-      Center(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              InkWell(
-                // onTap: () {
-                //   print("Developer Page Card Clicked !!"); }, //TODO!! remove
-                child: Card(
-                  child: Icon(
-                    Icons.code,
-                    size: 300,
+        // Center(child: Text("This is my Developer Page!")),
+        Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const <Widget>[
+                InkWell(
+                  // onTap: () {
+                  //   print("Developer Page Card Clicked !!"); }, //TODO!! remove
+                  child: Card(
+                    child: Icon(
+                      Icons.code,
+                      size: 300,
+                    ),
                   ),
                 ),
-              ),
-            ]
+              ]
+          ),
         ),
-      ),
     );
   }
 }
