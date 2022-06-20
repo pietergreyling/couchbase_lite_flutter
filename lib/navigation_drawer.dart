@@ -13,52 +13,71 @@ import "developer_page.dart" show DeveloperPage;
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: [
-          const UserAccountsDrawerHeader(
-            decoration: BoxDecoration(color: Colors.deepPurple),
-            accountName: Text(
-              "Demo Couchbase Flutter User",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            accountEmail: Text(
-              "demo_user@example.com",
-              style: TextStyle(
-                // fontWeight: FontWeight.bold,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-            currentAccountPicture: FlutterLogo(),
+      // child: SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Flexible(
+            child: buildHeader(context)
           ),
-          Container(
-            // height: 300,
-            padding: const EdgeInsets.all(24),
-            child: const DrawerHeader(
-              // child: Text('Couchbase Lite Flutter Demo'),
-              decoration: BoxDecoration(
-                color: Colors.deepPurple,
-                image: DecorationImage(
-                    image: AssetImage('assets/couchbase_logo.png'),
-                    fit: BoxFit.cover),
-              ),
-              child: null,
-            ),
+          Flexible(
+            child: buildMenuItems(context)
           ),
+        ]
+      ),
+    );
+  }
+
+  ListView buildHeader(BuildContext context) =>
+      ListView(
+          shrinkWrap: true,
+          padding: EdgeInsets.zero,
+          // padding: EdgeInsets.only(
+          //   top: MediaQuery.of(context).padding.top,
+          // ),
+          children: const [
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(color: Colors.deepPurple),
+              accountName: Text(
+                "Demo Couchbase Flutter User",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              accountEmail: Text(
+                "demo_user@example.com",
+                style: TextStyle(
+                  // fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+              currentAccountPicture:
+                // FlutterLogo(),
+                CircleAvatar(
+                  radius: 60.0,
+                  backgroundImage: AssetImage(
+                    'assets/couchbase_logo.png',
+                  ), //For Image Asset
+                ),
+            ),
+          ]);
+
+  ListView buildMenuItems(BuildContext context) =>
+      ListView(
+        shrinkWrap: true,
+        padding: EdgeInsets.zero,
+        children: [
           ListTile(
             leading: const Icon(
               Icons.home,
             ),
             title: const Text('Home'),
             onTap: () async {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => HomePage()));
             },
           ),
           ListTile(
@@ -67,7 +86,8 @@ class NavigationDrawer extends StatelessWidget {
             ),
             title: const Text('Developer'),
             onTap: () async {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DeveloperPage()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => DeveloperPage()));
             },
           ),
           ListTile(
@@ -88,6 +108,15 @@ class NavigationDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
+          ListTile(
+            leading: const Icon(
+              FontAwesomeIcons.anchorCircleExclamation,
+            ),
+            title: const Text('Test'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
           const AboutListTile(
             icon: Icon(
               Icons.info,
@@ -102,7 +131,6 @@ class NavigationDrawer extends StatelessWidget {
               ///Content goes here...
             ],
             child: Text('About'),
-          ),
-        ]));
-  }
+          )
+      ]);
 }
