@@ -18,23 +18,15 @@ class NavigationDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       // child: SingleChildScrollView(
-      child: Column(
-        children: <Widget>[
-          Flexible(
-            child: buildHeader(context)
-          ),
-          Flexible(
-            child: buildMenuItems(context)
-          ),
-        ]
-      ),
+      child: Column(children: <Widget>[
+        Flexible(child: buildHeader(context)),
+        Flexible(child: buildMenuItems(context)),
+      ]),
     );
   }
 
   ListView buildHeader(BuildContext context) =>
-      ListView(
-          shrinkWrap: true,
-          padding: EdgeInsets.zero,
+      ListView(shrinkWrap: true, padding: EdgeInsets.zero,
           // padding: EdgeInsets.only(
           //   top: MediaQuery.of(context).padding.top,
           // ),
@@ -55,82 +47,79 @@ class NavigationDrawer extends StatelessWidget {
                 ),
               ),
               currentAccountPicture:
-                // FlutterLogo(),
-                CircleAvatar(
-                  radius: 60.0,
-                  backgroundImage: AssetImage(
-                    'assets/couchbase_logo.png',
-                  ), //For Image Asset
-                ),
+                  // FlutterLogo(),
+                  CircleAvatar(
+                radius: 60.0,
+                backgroundImage: AssetImage(
+                  'assets/couchbase_logo.png',
+                ), //For Image Asset
+              ),
             ),
           ]);
 
   ListView buildMenuItems(BuildContext context) =>
-      ListView(
-        shrinkWrap: true,
-        padding: EdgeInsets.zero,
-        children: [
-          ListTile(
-            leading: const Icon(
-              Icons.home,
-            ),
-            title: const Text('Home'),
-            onTap: () async {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => HomePage()));
-            },
+      ListView(shrinkWrap: true, padding: EdgeInsets.zero, children: [
+        ListTile(
+          leading: const Icon(
+            Icons.home,
           ),
-          ListTile(
-            leading: const Icon(
-              FontAwesomeIcons.code,
-            ),
-            title: const Text('Developer'),
-            onTap: () async {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => DeveloperPage()));
-            },
+          title: const Text('Home'),
+          onTap: () async {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const HomePage()));
+          },
+        ),
+        ListTile(
+          leading: const Icon(
+            FontAwesomeIcons.code,
           ),
-          ListTile(
-            leading: const Icon(
-              FontAwesomeIcons.rightFromBracket,
-            ),
-            title: const Text('Log In'),
-            onTap: () {
-              Navigator.pop(context);
-            },
+          title: const Text('Developer'),
+          onTap: () async {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const DeveloperPage()));
+          },
+        ),
+        ListTile(
+          leading: const Icon(
+            FontAwesomeIcons.rightFromBracket,
           ),
-          ListTile(
-            leading: const Icon(
-              FontAwesomeIcons.circleArrowLeft,
-            ),
-            title: const Text('Log Out'),
-            onTap: () {
-              Navigator.pop(context);
-            },
+          title: const Text('Log In'),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: const Icon(
+            FontAwesomeIcons.circleArrowLeft,
           ),
-          ListTile(
-            leading: const Icon(
-              FontAwesomeIcons.anchorCircleExclamation,
-            ),
-            title: const Text('Test'),
-            onTap: () {
-              Navigator.pop(context);
-            },
+          title: const Text('Log Out'),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          leading: const Icon(
+            FontAwesomeIcons.anchorCircleExclamation,
           ),
-          const AboutListTile(
-            icon: Icon(
-              Icons.info,
-            ),
-            applicationIcon: Icon(
-              Icons.local_play,
-            ),
-            applicationName: 'Flutter with Couchbase',
-            applicationVersion: '0.1.0',
-            applicationLegalese: '© 2022 MIT License',
-            aboutBoxChildren: [
-              ///Content goes here...
-            ],
-            child: Text('About'),
-          )
+          title: const Text('Test'),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        const AboutListTile(
+          icon: Icon(
+            Icons.info,
+          ),
+          applicationIcon: Icon(
+            Icons.local_play,
+          ),
+          applicationName: 'Flutter with Couchbase',
+          applicationVersion: '0.1.0',
+          applicationLegalese: '© 2022 MIT License',
+          aboutBoxChildren: [
+            ///Content goes here...
+          ],
+          child: Text('About'),
+        )
       ]);
 }
