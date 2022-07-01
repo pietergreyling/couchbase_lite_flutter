@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 
 // https://pub.dev/packages/intl
 import 'package:intl/intl.dart';
-import 'package:flutter/material.dart';
 
 // my package imports
 import 'navigation_drawer.dart';

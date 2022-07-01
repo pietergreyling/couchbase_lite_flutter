@@ -30,6 +30,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  provider: ^6.0.3
+
   cbl: ^2.0.0+0
   cbl_flutter: ^2.0.0
 #  cbl_flutter_ce: ^1.0.0
@@ -55,6 +57,14 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
+#flutter_icons:
+#  ios: true
+#  android: true
+#  image_path_ios: "assets/icon/ic_launcher_round.png"
+#  image_path_android: "assets/icon/ic_launcher_round.png"
+#  adaptive_icon_background: "assets/launcher/background.png"
+#  adaptive_icon_foreground: "assets/launcher/foreground.png"
+
 # The following section is specific to Flutter packages.
 flutter:
   # The following line ensures that the Material Icons font is
@@ -63,6 +73,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/couchbase_logo.png
+    - assets/icon/ic_launcher.png
+    - assets/icon/ic_launcher_round.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

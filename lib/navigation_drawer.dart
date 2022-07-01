@@ -8,6 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // import 'package:couchbase_lite_flutter/routes/page_routes.dart';
 // import 'page_routes.dart';
 
+import 'package:couchbase_lite_flutter/pages/login_page.dart' show LoginPage;
 import "home_page.dart" show HomePage;
 import "developer_page.dart" show DeveloperPage;
 
@@ -17,7 +18,6 @@ class NavigationDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      // child: SingleChildScrollView(
       child: Column(children: <Widget>[
         Flexible(child: buildHeader(context)),
         Flexible(child: buildMenuItems(context)),
@@ -27,9 +27,6 @@ class NavigationDrawer extends StatelessWidget {
 
   ListView buildHeader(BuildContext context) =>
       ListView(shrinkWrap: true, padding: EdgeInsets.zero,
-          // padding: EdgeInsets.only(
-          //   top: MediaQuery.of(context).padding.top,
-          // ),
           children: const [
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(color: Colors.deepPurple),
@@ -47,13 +44,13 @@ class NavigationDrawer extends StatelessWidget {
                 ),
               ),
               currentAccountPicture:
-                  // FlutterLogo(),
-                  CircleAvatar(
-                radius: 60.0,
-                backgroundImage: AssetImage(
-                  'assets/couchbase_logo.png',
-                ), //For Image Asset
-              ),
+                // FlutterLogo(),
+                CircleAvatar(
+                  radius: 60.0,
+                  backgroundImage: AssetImage(
+                    'assets/couchbase_logo.png',
+                  ), //For Image Asset
+                ),
             ),
           ]);
 
@@ -71,21 +68,22 @@ class NavigationDrawer extends StatelessWidget {
         ),
         ListTile(
           leading: const Icon(
+            FontAwesomeIcons.rightFromBracket,
+          ),
+          title: const Text('Log In'),
+          onTap: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const LoginPage()));
+          },
+        ),
+        ListTile(
+          leading: const Icon(
             FontAwesomeIcons.code,
           ),
           title: const Text('Developer'),
           onTap: () async {
             Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => const DeveloperPage()));
-          },
-        ),
-        ListTile(
-          leading: const Icon(
-            FontAwesomeIcons.rightFromBracket,
-          ),
-          title: const Text('Log In'),
-          onTap: () {
-            Navigator.pop(context);
           },
         ),
         ListTile(
