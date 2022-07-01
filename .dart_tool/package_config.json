@@ -15,27 +15,27 @@
     },
     {
       "name": "cbl",
-      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl-1.2.0",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl-2.0.0+0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.17"
     },
     {
       "name": "cbl_ffi",
-      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl_ffi-0.7.2+3",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl_ffi-0.8.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.17"
     },
     {
       "name": "cbl_flutter",
-      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl_flutter-1.0.0+3",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl_flutter-2.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.17"
     },
     {
       "name": "cbl_flutter_platform_interface",
-      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl_flutter_platform_interface-1.0.0",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl_flutter_platform_interface-2.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.17"
     },
     {
       "name": "cbl_libcblite_api",
@@ -45,9 +45,9 @@
     },
     {
       "name": "cbl_libcblitedart_api",
-      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl_libcblitedart_api-1.0.0",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl_libcblitedart_api-2.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.17"
     },
     {
       "name": "characters",
@@ -171,13 +171,13 @@
     },
     {
       "name": "path_provider_android",
-      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_android-2.0.14",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_android-2.0.16",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
     {
       "name": "path_provider_ios",
-      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_ios-2.0.9",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_ios-2.0.10",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -308,7 +308,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-06-27T15:32:37.829689Z",
+  "generated": "2022-07-01T12:53:27.361576Z",
   "generator": "pub",
   "generatorVersion": "2.17.5"
 }
