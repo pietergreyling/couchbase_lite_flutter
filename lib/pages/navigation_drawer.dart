@@ -9,8 +9,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // import 'page_routes.dart';
 
 import 'package:couchbase_lite_flutter/pages/login_page.dart' show LoginPage;
-import "home_page.dart" show HomePage;
-import "developer_page.dart" show DeveloperPage;
+import 'package:couchbase_lite_flutter/pages/home_page.dart' show HomePage;
+import 'package:couchbase_lite_flutter/pages/developer_page.dart' show DeveloperPage;
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class NavigationDrawer extends StatelessWidget {
 
   ListView buildHeader(BuildContext context) =>
       ListView(shrinkWrap: true, padding: EdgeInsets.zero,
-          children: const [
+          children: [
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(color: Colors.deepPurple),
               accountName: Text(
@@ -51,6 +51,9 @@ class NavigationDrawer extends StatelessWidget {
                     'assets/couchbase_logo.png',
                   ), //For Image Asset
                 ),
+              onDetailsPressed: () {
+                print('UserAccountsDrawer: onDetailsPressed...');
+              },
             ),
           ]);
 
