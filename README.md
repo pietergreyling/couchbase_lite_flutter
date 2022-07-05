@@ -1,9 +1,9 @@
 # Couchbase Lite Flutter
 Couchbase Lite Flutter POC (proof of concept)
 
-![Main Navigator Page](./screenshots/screenshot_main_02.png?raw=true)
-
 ![Main Navigator Page](./screenshots/screenshot_login.png?raw=true)
+
+![Main Navigator Page](./screenshots/screenshot_navigation_01.png?raw=true)
 
 ![Main Navigator Page](./screenshots/screenshot_about_01.png?raw=true)
 
