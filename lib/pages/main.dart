@@ -65,6 +65,18 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         drawer: const NavigationDrawer(),
+        body: Center(
+          child: Container(
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Colors.deepPurple,
+                    Colors.lightBlue,
+                  ],
+                )
+          ))),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
           onPressed: () {

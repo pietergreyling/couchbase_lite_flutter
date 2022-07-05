@@ -18,9 +18,10 @@ class NavigationDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Column(children: <Widget>[
-        Flexible(child: buildHeader(context)),
-        Flexible(child: buildMenuItems(context)),
+      child:
+        Column(children: <Widget>[
+          Flexible(child: buildHeader(context)),
+          Flexible(child: buildMenuItems(context)),
       ]),
     );
   }

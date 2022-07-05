@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
             children: const <Widget>[
               InkWell(
                 // onTap: () {
-                //   print("Home Card Clicked !!"); }, //TODO!! remove
+                //   print("Home Card clicked !!"); }, //TODO!! remove
                 child: Card(
                   child: Icon(
                     Icons.fingerprint,
