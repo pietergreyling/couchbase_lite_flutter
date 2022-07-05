@@ -30,7 +30,7 @@ class NavigationDrawer extends StatelessWidget {
       ListView(shrinkWrap: true, padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
-              decoration: BoxDecoration(color: Colors.deepPurple),
+              decoration: BoxDecoration(color: Colors.deepPurpleAccent),
               accountName: Text(
                 "Demo Couchbase Flutter User",
                 style: TextStyle(

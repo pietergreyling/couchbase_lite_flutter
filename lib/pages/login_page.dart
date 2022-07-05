@@ -1,6 +1,6 @@
-import 'package:couchbase_lite_flutter/pages/main.dart';
 import 'package:flutter/material.dart';
 
+import 'package:couchbase_lite_flutter/pages/main_page.dart' show MainPage;
 import 'package:couchbase_lite_flutter/pages/home_page.dart' show HomePage;
 
 class LoginPage extends StatelessWidget {
@@ -9,13 +9,13 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [
                 Colors.deepPurpleAccent,
-                Colors.lightBlue,
+                Colors.lightBlue.shade100,
               ],
             )
         ),
@@ -88,7 +88,8 @@ class LoginPage extends StatelessWidget {
                   child: TextButton(
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => const HomePage()));
+                          MaterialPageRoute(builder: (_) =>
+                            const MainPage(title: 'Couchbase Lite Flutter Demo App',)));
                     },
                     child: Text(
                       'Login',

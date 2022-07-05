@@ -1,22 +1,25 @@
 import 'dart:async';
 
-// https://pub.dev/packages/cbl
-// https://pub.dev/documentation/cbl/latest/
-import 'package:cbl/cbl.dart';
-import 'package:cbl_flutter/cbl_flutter.dart';
-
 import 'package:flutter/material.dart';
 
 // https://pub.dev/packages/intl
 import 'package:intl/intl.dart';
 
 // my package imports
-import 'navigation_drawer.dart';
+import 'package:couchbase_lite_flutter/pages/main_page.dart' show MainPage;
+import 'package:couchbase_lite_flutter/pages/navigation_drawer.dart' show NavigationDrawer;
+import 'package:couchbase_lite_flutter/pages/login_page.dart' show LoginPage;
 
 // https://pub.dev/packages/font_awesome_flutter
 // https://github.com/fluttercommunity/font_awesome_flutter
 // https://fontawesome.com/icons
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+// https://pub.dev/packages/cbl
+// https://pub.dev/documentation/cbl/latest/
+import 'package:cbl/cbl.dart';
+import 'package:cbl_flutter/cbl_flutter.dart';
+
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -37,53 +40,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: const MyHomePage(title: 'Couchbase Lite Flutter Demo'),
+      home:
+        // const MainPage(title: 'Couchbase Lite Flutter Demo'),
+        const LoginPage(),
     );
     return myMaterialApp;
     // return myAppScaffold;
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.deepPurple,
-          title: const Text(
-            'Couchbase Lite Flutter Demo',
-          ),
-        ),
-        drawer: const NavigationDrawer(),
-        body: Center(
-          child: Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  colors: [
-                    Colors.deepPurpleAccent,
-                    Colors.lightBlue,
-                  ],
-                )
-          ))),
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-              content: Text('Couchbase Lite Flutter Demo'),
-            ));
-          },
-        ));
   }
 }
