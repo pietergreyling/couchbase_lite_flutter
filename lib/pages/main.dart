@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   colors: [
-                    Colors.deepPurple,
+                    Colors.deepPurpleAccent,
                     Colors.lightBlue,
                   ],
                 )
