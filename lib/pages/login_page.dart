@@ -41,18 +41,18 @@ class LoginPage extends StatelessWidget {
                             Image.asset('assets/icon/ic_launcher_round.png')),
                   ),
                 ),
-                Padding(
+                const Padding(
                   //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
                   padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                   child: TextField(
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Email',
-                        hintText: 'Enter valid email id as abc@gmail.com'),
+                        labelText: 'User ID or Email',
+                        hintText: 'Enter a valid user id or email'),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
+                const Padding(
+                  padding: EdgeInsets.only(
                       left: 15.0, right: 15.0, top: 15, bottom: 0),
                   //padding: EdgeInsets.symmetric(horizontal: 15),
                   child: TextField(
@@ -64,7 +64,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  child: Text(
+                  child: const Text(
                     'Forgot Password?',
                     style: TextStyle(color: Colors.black, fontSize: 15),
                   ),
@@ -91,17 +91,18 @@ class LoginPage extends StatelessWidget {
                           MaterialPageRoute(builder: (_) =>
                             const MainPage(title: 'Couchbase Lite Flutter Demo App',)));
                     },
-                    child: Text(
+                    child: const Text(
                       'Login',
                       style: TextStyle(color: Colors.white, fontSize: 25),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 120,
                 ),
                 // Text('New User? Create Account')
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Text('Do not have an account?'),
                     TextButton(
@@ -114,7 +115,6 @@ class LoginPage extends StatelessWidget {
                       },
                     )
                   ],
-                  mainAxisAlignment: MainAxisAlignment.center,
                 ),
               ],
             ),
