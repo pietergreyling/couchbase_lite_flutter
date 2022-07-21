@@ -32,6 +32,9 @@ dependencies:
 
   provider: ^6.0.3
 
+#  path: ^1.8.2
+  path_provider: ^2.0.11
+
   cbl: ^2.0.0+0
   cbl_flutter: ^2.0.0
 #  cbl_flutter_ce: ^2.0.0

@@ -19,9 +19,13 @@ import 'package:couchbase_lite_flutter/pages/login_page.dart' show LoginPage;
 // https://pub.dev/documentation/cbl/latest/
 import 'package:cbl/cbl.dart';
 import 'package:cbl_flutter/cbl_flutter.dart';
-
+// import 'package:cbl_flutter_ce/cbl_flutter_ce.dart';
+// import 'package:cbl_flutter_ee/cbl_flutter_ee.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await TracingDelegate.install(DevToolsTracing());
+  await CouchbaseLiteFlutter.init();
   runApp(const MyApp());
 }
 

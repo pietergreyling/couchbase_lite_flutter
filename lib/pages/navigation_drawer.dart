@@ -9,8 +9,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // import 'package:couchbase_lite_flutter/routes/page_routes.dart';
 // import 'page_routes.dart';
 
+import 'package:couchbase_lite_flutter/pages/main_page.dart' show MainPage;
 import 'package:couchbase_lite_flutter/pages/login_page.dart' show LoginPage;
-import 'package:couchbase_lite_flutter/pages/home_page.dart' show HomePage;
 import 'package:couchbase_lite_flutter/pages/developer_page.dart' show DeveloperPage;
 
 class NavigationDrawer extends StatelessWidget {
@@ -41,7 +41,7 @@ class NavigationDrawer extends StatelessWidget {
       ListView(shrinkWrap: true, padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
-              decoration: BoxDecoration(color: Colors.deepPurpleAccent),
+              decoration: const BoxDecoration(color: Colors.deepPurpleAccent),
               accountName: Text(
                 title,
                 style: const TextStyle(
@@ -49,7 +49,7 @@ class NavigationDrawer extends StatelessWidget {
                 ),
               ),
               accountEmail: Text(
-                user,
+                'User: $user',
                 style: const TextStyle(
                   // fontWeight: FontWeight.bold,
                   fontWeight: FontWeight.normal,
@@ -67,8 +67,8 @@ class NavigationDrawer extends StatelessWidget {
                 if (kDebugMode) {
                   print(
                       'UserAccountsDrawer: onDetailsPressed...\n'
-                      'User ID: ${title}\n'
-                      'Password: ${user}');
+                      '-- Title: ${title}\n'
+                      '-- User: ${user}');
                 }
               },
             ),
@@ -82,22 +82,22 @@ class NavigationDrawer extends StatelessWidget {
       ListView(shrinkWrap: true, padding: EdgeInsets.zero, children: [
         ListTile(
           leading: const Icon(
-            Icons.home,
-          ),
-          title: const Text('Home'),
-          onTap: () async {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const HomePage()));
-          },
-        ),
-        ListTile(
-          leading: const Icon(
             FontAwesomeIcons.rightFromBracket,
           ),
           title: const Text('Log In'),
           onTap: () {
             Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => const LoginPage()));
+          },
+        ),
+        ListTile(
+          leading: const Icon(
+            Icons.home,
+          ),
+          title: const Text('Home'),
+          onTap: () async {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => MainPage(title: title, user: user)));
           },
         ),
         ListTile(
@@ -110,24 +110,15 @@ class NavigationDrawer extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const DeveloperPage()));
           },
         ),
-        ListTile(
-          leading: const Icon(
-            FontAwesomeIcons.circleArrowLeft,
-          ),
-          title: const Text('Log Out'),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          leading: const Icon(
-            FontAwesomeIcons.anchorCircleExclamation,
-          ),
-          title: const Text('Test'),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
+        // ListTile(
+        //   leading: const Icon(
+        //     FontAwesomeIcons.anchorCircleExclamation,
+        //   ),
+        //   title: const Text('Test'),
+        //   onTap: () {
+        //     Navigator.pop(context);
+        //   },
+        // ),
         const AboutListTile(
           icon: Icon(
             Icons.info,
@@ -142,6 +133,15 @@ class NavigationDrawer extends StatelessWidget {
             ///Content goes here...
           ],
           child: Text('About'),
-        )
+        ),
+        ListTile(
+          leading: const Icon(
+            FontAwesomeIcons.circleArrowLeft,
+          ),
+          title: const Text('Log Out'),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
       ]);
 }

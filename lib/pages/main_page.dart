@@ -17,7 +17,6 @@ import 'package:cbl_flutter/cbl_flutter.dart';
 
 // my package imports
 import 'package:couchbase_lite_flutter/pages/navigation_drawer.dart' show NavigationDrawer;
-import 'package:couchbase_lite_flutter/pages/login_page.dart' show LoginPage;
 
 class MainPage extends StatefulWidget {
   const MainPage({

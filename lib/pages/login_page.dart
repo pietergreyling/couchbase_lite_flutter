@@ -1,7 +1,20 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
+// https://pub.dev/packages/intl
+import 'package:intl/intl.dart';
+
+import 'package:path_provider/path_provider.dart';
+
+// https://pub.dev/packages/cbl
+// https://pub.dev/documentation/cbl/latest/
+import 'package:cbl/cbl.dart';
+import 'package:cbl_flutter/cbl_flutter.dart';
+// import 'package:cbl_flutter_ce/cbl_flutter_ce.dart';
+import 'package:cbl_flutter_ee/cbl_flutter_ee.dart';
+
 import 'package:couchbase_lite_flutter/pages/main_page.dart' show MainPage;
-import 'package:couchbase_lite_flutter/pages/home_page.dart' show HomePage;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -15,14 +28,41 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   // Create a text controller and use it to retrieve the current value
   // of the TextField.
-  final useridTextController = TextEditingController();
-  final passwordTextController = TextEditingController();
+  final _useridTextController = TextEditingController();
+  final _passwordTextController = TextEditingController();
+
+  final String _userProfileDbName = "userprofile";
+  // late final AsyncDatabase _userProfileDb;
+  late final Database _userProfileDb;
+  late final Directory _appFilesDirectory;
+
+  _LoginPageState() {
+    // initialise user profile from database (if exists)
+    initUserProfileDb();
+  }
+
+  void initUserProfileDb() async {
+  // void initUserProfileDb() {
+    // configure work directory and logging
+    _appFilesDirectory = await getApplicationDocumentsDirectory();
+    // make sure it exists
+    _appFilesDirectory.create(recursive: true);
+    Database.log.file.config = LogFileConfiguration(directory: _appFilesDirectory.path);
+    Database.log.console.level = LogLevel.info;
+
+    // open user profile database
+    _userProfileDb = Database.openSync(_userProfileDbName);
+
+  }
 
   @override
   void dispose() {
+    // free db resources
+    _userProfileDb.close();
+
     // Clean up the controllers when the widget is disposed.
-    useridTextController.dispose();
-    passwordTextController.dispose();
+    _useridTextController.dispose();
+    _passwordTextController.dispose();
     super.dispose();
   }
 
@@ -65,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                     //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
                     padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                     child: TextField(
-                      controller: useridTextController,
+                      controller: _useridTextController,
                       decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'User ID or Email',
@@ -77,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                         left: 15.0, right: 15.0, top: 15, bottom: 0),
                     //padding: EdgeInsets.symmetric(horizontal: 15),
                     child: TextField(
-                      controller: passwordTextController,
+                      controller: _passwordTextController,
                       obscureText: true,
                       decoration: const InputDecoration(
                           border: OutlineInputBorder(),
@@ -108,6 +148,10 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.deepPurple,
                         borderRadius: BorderRadius.circular(20)),
                     child: TextButton(
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
                       onPressed: () {
                         // showDialog(
                         //   context: context,
@@ -124,13 +168,9 @@ class _LoginPageState extends State<LoginPage> {
                             MaterialPageRoute(builder: (_) =>
                             MainPage(
                               title: 'Couchbase Lite Flutter Demo',
-                              user: useridTextController.text,
+                              user: _useridTextController.text
                             )));
                       },
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(color: Colors.white, fontSize: 25),
-                      ),
                     ),
                   ),
                   const SizedBox(
