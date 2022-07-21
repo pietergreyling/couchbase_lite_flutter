@@ -2,6 +2,18 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "archive",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/archive-3.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "args",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/args-2.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "async",
       "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2",
       "packageUri": "lib/",
@@ -110,6 +122,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_launcher_icons",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.9.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1",
       "packageUri": "lib/",
@@ -126,6 +144,12 @@
       "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-10.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "image",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/image-3.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
     },
     {
       "name": "intl",
@@ -210,6 +234,12 @@
       "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.7",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "petitparser",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-5.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
     },
     {
       "name": "platform",
@@ -314,13 +344,25 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "xml",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/xml-6.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "yaml",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "couchbase_lite_flutter",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-07-19T16:44:08.831255Z",
+  "generated": "2022-07-21T15:10:15.112428Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }
