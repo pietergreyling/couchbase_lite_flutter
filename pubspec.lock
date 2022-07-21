@@ -50,6 +50,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  cbl_flutter_ee:
+    dependency: "direct main"
+    description:
+      name: cbl_flutter_ee
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   cbl_flutter_platform_interface:
     dependency: transitive
     description:

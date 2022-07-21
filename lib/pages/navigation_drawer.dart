@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // https://pub.dev/packages/font_awesome_flutter
@@ -13,52 +14,71 @@ import 'package:couchbase_lite_flutter/pages/home_page.dart' show HomePage;
 import 'package:couchbase_lite_flutter/pages/developer_page.dart' show DeveloperPage;
 
 class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer({Key? key}) : super(key: key);
+  const NavigationDrawer({
+    Key? key,
+    required this.title,
+    required this.user
+  }) : super(key: key);
+  final String title;
+  final String user;
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child:
         Column(children: <Widget>[
-          Flexible(child: buildHeader(context)),
-          Flexible(child: buildMenuItems(context)),
+          Flexible(child: buildHeader(context, title, user)),
+          Flexible(child: buildMenuItems(context, title, user)),
       ]),
     );
   }
 
-  ListView buildHeader(BuildContext context) =>
+  ListView buildHeader(
+        BuildContext context,
+        String title,
+        String user
+      ) =>
       ListView(shrinkWrap: true, padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(color: Colors.deepPurpleAccent),
               accountName: Text(
-                "Demo Couchbase Flutter User",
-                style: TextStyle(
+                title,
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),
               accountEmail: Text(
-                "demo_user@example.com",
-                style: TextStyle(
+                user,
+                style: const TextStyle(
                   // fontWeight: FontWeight.bold,
                   fontWeight: FontWeight.normal,
                 ),
               ),
               currentAccountPicture:
                 // FlutterLogo(),
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 60.0,
                   backgroundImage: AssetImage(
                     'assets/couchbase_logo.png',
                   ), //For Image Asset
                 ),
               onDetailsPressed: () {
-                print('UserAccountsDrawer: onDetailsPressed...');
+                if (kDebugMode) {
+                  print(
+                      'UserAccountsDrawer: onDetailsPressed...\n'
+                      'User ID: ${title}\n'
+                      'Password: ${user}');
+                }
               },
             ),
           ]);
 
-  ListView buildMenuItems(BuildContext context) =>
+  ListView buildMenuItems(
+      BuildContext context,
+      String title,
+      String user
+      ) =>
       ListView(shrinkWrap: true, padding: EdgeInsets.zero, children: [
         ListTile(
           leading: const Icon(

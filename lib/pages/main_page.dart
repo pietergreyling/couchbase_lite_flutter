@@ -5,10 +5,6 @@ import 'package:flutter/material.dart';
 // https://pub.dev/packages/intl
 import 'package:intl/intl.dart';
 
-// my package imports
-import 'package:couchbase_lite_flutter/pages/navigation_drawer.dart' show NavigationDrawer;
-import 'package:couchbase_lite_flutter/pages/login_page.dart' show LoginPage;
-
 // https://pub.dev/packages/font_awesome_flutter
 // https://github.com/fluttercommunity/font_awesome_flutter
 // https://fontawesome.com/icons
@@ -19,9 +15,18 @@ import 'package:couchbase_lite_flutter/pages/login_page.dart' show LoginPage;
 import 'package:cbl/cbl.dart';
 import 'package:cbl_flutter/cbl_flutter.dart';
 
+// my package imports
+import 'package:couchbase_lite_flutter/pages/navigation_drawer.dart' show NavigationDrawer;
+import 'package:couchbase_lite_flutter/pages/login_page.dart' show LoginPage;
+
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key, required this.title}) : super(key: key);
+  const MainPage({
+    Key? key,
+    required this.title,
+    required this.user
+  }) : super(key: key);
   final String title;
+  final String user;
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -32,13 +37,16 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return (
       Scaffold(
-        drawer: const NavigationDrawer(),
+        drawer: NavigationDrawer(
+          title: super.widget.title,
+          user: super.widget.user
+        ),
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.deepPurpleAccent,
-          title: const Text(
-            'Couchbase Lite Flutter Demo',
+          title: Text(
+            super.widget.title
           ),
         ),
         body:

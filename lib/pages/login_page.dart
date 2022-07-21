@@ -122,7 +122,10 @@ class _LoginPageState extends State<LoginPage> {
                         // );
                         Navigator.push(context,
                             MaterialPageRoute(builder: (_) =>
-                            const MainPage(title: 'Couchbase Lite Flutter Demo App',)));
+                            MainPage(
+                              title: 'Couchbase Lite Flutter Demo',
+                              user: useridTextController.text,
+                            )));
                       },
                       child: const Text(
                         'Login',

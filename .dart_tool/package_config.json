@@ -44,6 +44,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "cbl_flutter_ee",
+      "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl_flutter_ee-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "cbl_flutter_platform_interface",
       "rootUri": "file:///usr/local/Caskroom/flutter/2.5.3/flutter/.pub-cache/hosted/pub.dartlang.org/cbl_flutter_platform_interface-2.0.0",
       "packageUri": "lib/",
@@ -362,7 +368,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-07-21T15:10:15.112428Z",
+  "generated": "2022-07-21T15:16:16.147502Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }
