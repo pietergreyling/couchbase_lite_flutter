@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 // import 'dart:async';
 
@@ -29,7 +30,7 @@ class LoginPage extends StatefulWidget {
 // This class holds the data related to the Form.
 class _LoginPageState extends State<LoginPage> {
   // Create a text controller and use it to retrieve the current value
-  // of the TextField.
+  // of the TextField as it gets edited
   final _useridTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
 
@@ -39,8 +40,10 @@ class _LoginPageState extends State<LoginPage> {
   late final Directory _appDocumentsDirectory;
   late final Directory _appSupportDirectory;
 
+  late final Document _userLoginDocument;
+
   _LoginPageState() {
-    // initialise user profile from database (if exists)
+    // initialise the user profile database
     initAndOpenUserProfileDb();
   }
 
@@ -76,6 +79,38 @@ class _LoginPageState extends State<LoginPage> {
     // -- User Profile Db Path:
     // /Users/pietergreyling/Library/Developer/CoreSimulator/Devices/624478F7-C06F-4253-A95C-AED74D81EF9E/data/Containers/Data/Application/84D5CD87-320B-46C9-BFBA-708291F64DD9/Library/Application Support/CouchbaseLite/userprofile.cblite2/
 
+    // read the initial values the user profile database
+    _userLoginDocument = readUserLoginFromUserProfileDb(id: 'userlogin') as Document;
+    if (kDebugMode) {
+      print(
+          'initAndOpenUserProfileDb: user profile database\n'
+              '-- User Login Document: \n${_userLoginDocument.toString()}');
+    }
+  }
+
+  Future<MutableDocument> writeUserLoginToUserProfileDb({
+    required String user
+  }) async {
+    // creates a new document with a specified key (id)
+    final doc = MutableDocument.withId(
+        'userlogin', {
+          'type': 'userlogin',
+          'user': user
+        }
+      );
+
+    // Now save the new note in the database.
+    await _userProfileDb.saveDocument(doc);
+
+    return doc;
+  }
+
+  Future<Document> readUserLoginFromUserProfileDb({
+    required String id // id should be 'userlogin'
+  }) async {
+    // read the document with the specified id
+    final Document doc = await _userProfileDb.document(id) as Document;
+    return doc;
   }
 
   @override
@@ -176,6 +211,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(color: Colors.white, fontSize: 25),
                       ),
                       onPressed: () {
+
                         // showDialog(
                         //   context: context,
                         //   builder: (context) {
@@ -187,6 +223,11 @@ class _LoginPageState extends State<LoginPage> {
                         //     );
                         //   },
                         // );
+
+                        // Write the user to the user profile database
+                        writeUserLoginToUserProfileDb(
+                            user: _useridTextController.text);
+
                         Navigator.push(context,
                             MaterialPageRoute(builder: (_) =>
                             MainPage(
