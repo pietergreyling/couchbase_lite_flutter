@@ -140,7 +140,20 @@ class NavigationDrawer extends StatelessWidget {
           ),
           title: const Text('Log Out'),
           onTap: () {
-            Navigator.pop(context);
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  // Retrieve the text that the user has entered by using the
+                  // TextEditingController.
+                  content: Text(
+                          'User: ${user} \n\nLogged out successfully!')
+                );
+              },
+            );
+            // Navigator.pop(context);
+            // Navigator.of(context).push(
+            //     MaterialPageRoute(builder: (context) => const LoginPage()));
           },
         ),
       ]);

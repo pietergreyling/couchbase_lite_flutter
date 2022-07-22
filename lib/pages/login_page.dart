@@ -1,5 +1,7 @@
 import 'dart:io';
+// import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 // https://pub.dev/packages/intl
@@ -34,24 +36,45 @@ class _LoginPageState extends State<LoginPage> {
   final String _userProfileDbName = "userprofile";
   // late final AsyncDatabase _userProfileDb;
   late final Database _userProfileDb;
-  late final Directory _appFilesDirectory;
+  late final Directory _appDocumentsDirectory;
+  late final Directory _appSupportDirectory;
 
   _LoginPageState() {
     // initialise user profile from database (if exists)
-    initUserProfileDb();
+    initAndOpenUserProfileDb();
   }
 
-  void initUserProfileDb() async {
-  // void initUserProfileDb() {
-    // configure work directory and logging
-    _appFilesDirectory = await getApplicationDocumentsDirectory();
-    // make sure it exists
-    _appFilesDirectory.create(recursive: true);
-    Database.log.file.config = LogFileConfiguration(directory: _appFilesDirectory.path);
+  void initAndOpenUserProfileDb() async {
+    // configure work directories
+    _appDocumentsDirectory = await getApplicationDocumentsDirectory();
+    _appSupportDirectory = await getApplicationSupportDirectory();
+
+    // make sure the directories exist
+    _appDocumentsDirectory.create(recursive: true);
+    _appSupportDirectory.create(recursive: true);
+
+    // configure database logging
+    Database.log.file.config = LogFileConfiguration(directory: _appSupportDirectory.path);
     Database.log.console.level = LogLevel.info;
 
     // open user profile database
     _userProfileDb = Database.openSync(_userProfileDbName);
+
+    if (kDebugMode) {
+      print(
+          'initAndOpenUserProfileDb: user profile database\n'
+              '-- App Documents Directory: \n${_appDocumentsDirectory.path}\n'
+              '-- App Support Directory: \n${_appSupportDirectory.path}\n'
+              '-- User Profile Db Path: \n${_userProfileDb.path}');
+    }
+    // Sample debug output:
+    // flutter: initAndOpenUserProfileDb: user profile database
+    // -- App Documents Directory:
+    // /Users/pietergreyling/Library/Developer/CoreSimulator/Devices/624478F7-C06F-4253-A95C-AED74D81EF9E/data/Containers/Data/Application/84D5CD87-320B-46C9-BFBA-708291F64DD9/Documents
+    // -- App Support Directory:
+    // /Users/pietergreyling/Library/Developer/CoreSimulator/Devices/624478F7-C06F-4253-A95C-AED74D81EF9E/data/Containers/Data/Application/84D5CD87-320B-46C9-BFBA-708291F64DD9/Library/Application Support
+    // -- User Profile Db Path:
+    // /Users/pietergreyling/Library/Developer/CoreSimulator/Devices/624478F7-C06F-4253-A95C-AED74D81EF9E/data/Containers/Data/Application/84D5CD87-320B-46C9-BFBA-708291F64DD9/Library/Application Support/CouchbaseLite/userprofile.cblite2/
 
   }
 
